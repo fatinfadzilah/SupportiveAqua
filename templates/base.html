@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JOMMAKAN CAFE</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-light-green.css">
+    <script src={{url_for('static',filename='js/bootstrap.min.js')}}></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body style="background-color:bisque;">
+    <header class="w3-container w3-theme w3-padding" id="myHeader">
+       <div class="w3-center">
+           <h1 class="w3-xxxlarge w3-text-amber w3-animate-bottom">Jom Makan Cafe</h1>
+       </div>
+   </header>
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+</html>
+

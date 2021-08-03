@@ -1,0 +1,110 @@
+{% extends "base.html" %} {% block content %}
+<style>
+    .card {
+        margin: 20px 10px 0px 0px;
+		background-color: #23b14d;
+		
+    }
+    
+    .card-header {
+        text-align: center;
+		color: white;
+	}
+    .card-body {
+		margin: auto;
+		background-color: white;
+		width :98%;
+		
+    }
+	li {
+		list-style-type:none;
+	}
+	table{
+		background-color:white;
+		width:95%;
+		margin-left:auto;
+		margin-right:auto;
+	}
+</style>
+<div id="row1">
+        <div style="display:flex">
+           <div  style="flex:1 0 33%">
+                <div id="TA" class="card">
+                    <div class="card-header">
+                        <h2>Your Order Receipt</h2>
+                    </div>
+                    <br>
+					<table>
+					<tr  style="background-color:#f2f4c0">
+                    <div id="TAcontent" class="card-body" style="display:flex">
+                        <th></th>
+                        <th><div style="padding:2px">Quantity</div></td>
+                        <th><div style="padding:2px">Menu</div></td>
+                       <tr  style="background-color:#e4e978">
+                        <td>Food:</td>
+                        <td><div id="foodQuan" style="padding:2px"></div></td>
+                        <td><div id="foodlist" style="padding:2px"></div></td>
+                       </tr>
+                        <tr  style="background-color:#e4e978">
+                        <td>Drinks:</td><td>
+                        <div id="drinkQuan" style="padding:2px"></div></td>
+                        <td><div id="drinkslist" style="padding:2px"></div></td>
+					            	</tr>
+
+                        <tr>
+                        <td>Date/Time :</td><td colspan="2"><div id="timelist" style="padding:2px"></div></td>
+                        </tr>
+						
+                    </div>
+					</tr>
+					</table>
+          <br>
+          <br>
+					<button style="margin-left:50%;background-color:#23b14d;color:white; text-decoration: none;"><a href="/">Back</a></button>
+      </div>
+    </div>
+</div>
+<script>
+ $(Document).ready(function() {
+        $.ajax({
+            url: "/tables",
+            success: function(result) {
+                //$("#TAfoodlist").html(String(result.A.food));
+                updfood(result.{{table_id}}.food.itemfood, "#foodlist");
+				Quantity(result.{{table_id}}.food.qfood, "#foodQuan");
+				Quantity1(result.{{table_id}}.drinks.qdrink, "#drinkQuan");
+                upddrink(result.{{table_id}}.drinks.itemdrink, "#drinkslist");
+				upddate(result.{{table_id}}.time, "#timelist");
+				
+	    }
+        });
+
+    });
+	
+	
+	function updfood(dat, tgt) {
+        $.each(dat, function(index, value) {
+            $(tgt).append("<li>" + value + "</li>");
+        });
+    }
+
+    function upddrink(dat, tgt) {
+        $.each(dat, function(index, value) {
+            $(tgt).append("<li>" + value + "</li>");
+        });
+    }
+	function Quantity(dat, tgt) {
+        $.each(dat, function(index, value) {
+            $(tgt).append("<li>" + value + "</li>");
+        });
+    }
+	function Quantity1(dat, tgt) {
+        $.each(dat, function(index, value) {
+            $(tgt).append("<li>" + value + "</li>");
+        });
+    }
+	function upddate(dat, tgt) {
+        $(tgt).html("<li>" + dat + "</li>");
+    }
+</script>
+{% endblock %}

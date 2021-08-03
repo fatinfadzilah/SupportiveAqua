@@ -1,0 +1,266 @@
+{% extends "base.html" %} {% block content %}
+<style>
+	.card {
+		margin: 20px 10px 0px 0px;
+		background-color: #23b14d;
+
+	}
+
+	.card-header {
+		text-align: center;
+		color: white;
+	}
+
+	.card-body {
+		margin: auto;
+		background-color: white;
+		width: 98%;
+
+	}
+
+	li {
+		list-style-type: none;
+	}
+
+	table {
+		background-color: white;
+		width: 95%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
+
+<div id="main_container" style="padding:5px 30px 5px 30px">
+	<div id="row1">
+		<div style="display:flex">
+			<div style="flex:1 0 33%">
+				<div id="TA" class="card">
+					<div class="card-header">
+						<h2>Table A</h2><span id="TAstatus"></span>
+                    </div>
+					<table>
+					<tr >
+                    <div id="TAcontent" class="card-body" style="display:flex">
+                        <td>Food:</td><td><div id="TAfoodQuan" style="padding:2px">Quantity</div></td><td><div id="TAfoodlist" style="padding:2px">Menu</div></td>
+						<tr  style="background-color:#e4e978">
+                        <td>Drinks:</td><td><div id="TAdrinkQuan" style="padding:2px"></div></td><td><div id="TAdrinkslist" style="padding:2px"></div></td>
+						</tr>
+						<tr>
+						<td>Date/Time :</td><td colspan="2"><div id="TAtimelist" style="padding:2px"></div></td>
+						</tr>
+						
+                    </div>
+					</tr>
+					</table>
+                </div>
+            </div>
+			
+			<div  style="flex:1 0 33%">
+                <div id="TB" class="card">
+                    <div class="card-header">
+                        <h2>Table B</h2><span id="TBstatus"></span>
+                    </div>
+					<table>
+					<tr  >
+                    <div id="TBcontent" class="card-body" style="display:flex">
+                        <td>Food:</td><td><div id="TBfoodQuan" style="padding:2px">Quantity</div></td><td><div id="TBfoodlist" style="padding:2px">Menu</div></td>
+						<tr  style="background-color:#e4e978">
+                        <td>Drinks:</td><td><div id="TBdrinkQuan" style="padding:2px"></div></td><td><div id="TBdrinkslist" style="padding:2px"></div></td>
+						</tr>
+						<tr>
+						<td>Date/Time :</td><td colspan="2"><div id="TBtimelist" style="padding:2px"></div></td>
+						</tr>
+						
+                    </div>
+					</tr>
+					</table>
+                </div>
+            </div>
+
+            <div  style="flex:1 0 33%">
+                <div id="TC" class="card">
+                    <div class="card-header">
+                        <h2>Table C</h2><span id="TCstatus"></span>
+                    </div>
+					<table>
+					<tr>
+                    <div id="TCcontent" class="card-body" style="display:flex">
+                        <td>Food:</td><td><div id="TCfoodQuan" style="padding:2px">Quantity</div></td><td><div id="TCfoodlist" style="padding:2px">Menu</div></td>
+						<tr  style="background-color:#e4e978">
+                        <td>Drinks:</td><td><div id="TCdrinkQuan" style="padding:2px"></div></td><td><div id="TCdrinkslist" style="padding:2px"></div></td>
+						</tr>
+						<tr>
+						<td>Date/Time :</td><td colspan="2"><div id="TCtimelist" style="padding:2px"></div></td>
+						</tr>
+                    </div>
+					</tr>
+					</table>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div id="row2">
+        <div style="display:flex">
+             <div  style="flex:1 0 33%">
+                <div id="TD" class="card">
+                    <div class="card-header">
+                        <h2>Table D</h2><span id="TDstatus"></span>
+                    </div>
+					<table>
+					<tr >
+                    <div id="TDcontent" class="card-body" style="display:flex">
+                        <td>Food:</td><td><div id="TDfoodQuan" style="padding:2px">Quantity</div></td><td><div id="TDfoodlist" style="padding:2px">Menu</div></td>
+						<tr  style="background-color:#e4e978">
+                        <td>Drinks:</td><td><div id="TDdrinkQuan" style="padding:2px"></div></td><td><div id="TDdrinkslist" style="padding:2px"></div></td>
+						</tr>
+						<tr>
+						<td>Date/Time :</td><td colspan="2"><div id="TDtimelist" style="padding:2px"></div></td>
+						</tr>
+                    </div>
+					</tr>
+					</table>
+                </div>
+            </div>
+
+            <div  style="flex:1 0 33%">
+                <div id="TE" class="card">
+                    <div class="card-header">
+                        <h2>Table E</h2><span id="TEstatus"></span>
+                    </div>
+					<table>
+					<tr >
+                    <div id="TEcontent" class="card-body" style="display:flex">
+                        <td>Food:</td><td><div id="TEfoodQuan" style="padding:2px">Quantity</div></td><td><div id="TEfoodlist" style="padding:2px">Menu</div></td>
+						<tr  style="background-color:#e4e978">
+                        <td>Drinks:</td><td><div id="TEdrinkQuan" style="padding:2px"></div></td><td><div id="TEdrinkslist" style="padding:2px"></div></td>
+						</tr>
+						<tr>
+						<td>Date/Time :</td><td colspan="2"><div id="TEtimelist" style="padding:2px"></div></td>
+						</tr>
+                    </div>
+					</tr>
+					</table>
+                </div>
+            </div>
+			<div  style="flex:1 0 33%">
+                <div id="TF" class="card">
+                    <div class="card-header">
+                        <h2>Table F</h2><span id="TFstatus"></span>
+                    </div>
+					<table>
+					<tr >
+                    <div id="TFcontent" class="card-body" style="display:flex">
+                        <td>Food:</td><td><div id="TFfoodQuan" style="padding:2px">Quantity</div></td><td><div id="TFfoodlist" style="padding:2px">Menu</div></td>
+						<tr  style="background-color:#e4e978">
+                        <td>Drinks:</td><td><div id="TFdrinkQuan" style="padding:2px"></div></td><td><div id="TFdrinkslist" style="padding:2px"></div></td>
+						</tr>
+						<tr>
+						<td>Date/Time :</td><td colspan="2"><div id="TFtimelist" style="padding:2px"></div></td>
+						</tr>
+                    </div>
+					</tr>
+					</table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+<script>
+    $(Document).ready(function() {
+        $.ajax({
+            url: "/tables",
+            success: function(result) {
+            //table A
+            updfood(result.A.food.itemfood, "#TAfoodlist");
+				    Quantity(result.A.food.qfood, "#TAfoodQuan");
+				    Quantity1(result.A.drinks.qdrink, "#TAdrinkQuan");
+            upddrink(result.A.drinks.itemdrink, "#TAdrinkslist");
+				    upddate(result.A.time, "#TAtimelist");
+            updstatus(result.A.status, "#TAstatus")
+             //table B
+            updfood(result.B.food.itemfood, "#TBfoodlist");
+				    Quantity(result.B.food.qfood, "#TBfoodQuan");
+				    Quantity1(result.B.drinks.qdrink, "#TBdrinkQuan");
+            upddrink(result.B.drinks.itemdrink, "#TBdrinkslist");
+				    upddate(result.B.time, "#TBtimelist");
+            updstatus(result.B.status, "#TBstatus")
+					  //table C
+            updfood(result.C.food.itemfood, "#TCfoodlist");
+				    Quantity(result.C.food.qfood, "#TCfoodQuan");
+				    Quantity1(result.C.drinks.qdrink, "#TCdrinkQuan");
+            upddrink(result.C.drinks.itemdrink, "#TCdrinkslist");
+				    upddate(result.C.time, "#TCtimelist");
+            updstatus(result.C.status, "#TCstatus")
+					   //table D
+            updfood(result.D.food.itemfood, "#TDfoodlist");
+				    Quantity(result.D.food.qfood, "#TDfoodQuan");
+				    Quantity1(result.D.drinks.qdrink, "#TDdrinkQuan");
+            upddrink(result.D.drinks.itemdrink, "#TDdrinkslist");
+				    upddate(result.D.time, "#TDtimelist");
+            updstatus(result.D.status, "#TDstatus")
+					   //table E
+            updfood(result.E.food.itemfood, "#TEfoodlist");
+				    Quantity(result.E.food.qfood, "#TEfoodQuan");
+				    Quantity1(result.E.drinks.qdrink, "#TEdrinkQuan");
+            upddrink(result.E.drinks.itemdrink, "#TEdrinkslist");
+				    upddate(result.E.time, "#TEtimelist");
+            updstatus(result.E.status, "#TEstatus")
+					   //table F
+            updfood(result.F.food.itemfood, "#TFfoodlist");
+				    Quantity(result.F.food.qfood, "#TFfoodQuan");
+				    Quantity1(result.F.drinks.qdrink, "#TFdrinkQuan");
+            upddrink(result.F.drinks.itemdrink, "#TFdrinkslist");
+				    upddate(result.F.time, "#TFtimelist");
+            updstatus(result.F.status, "#TFstatus")
+
+
+                
+            }
+        });
+
+    });
+
+    function updfood(dat, tgt) {
+        $.each(dat, function(index, value) {
+            $(tgt).append("<li>" + value + "</li>");
+        });
+    }
+
+    function upddrink(dat, tgt) {
+        $.each(dat, function(index, value) {
+            $(tgt).append("<li>" + value + "</li>");
+        });
+    }
+	
+	function upddate(dat, tgt) {
+        $(tgt).html("<li>" + dat + "</li>");
+    }
+
+    function updstatus(dat, tgt) {
+        $(tgt).html("<h5>" + dat + "</h5>");
+    }
+	function Quantity(dat, tgt) {
+        $.each(dat, function(index, value) {
+            $(tgt).append("<li>" + value + "</li>");
+        });
+    }
+	function Quantity1(dat, tgt) {
+        $.each(dat, function(index, value) {
+            $(tgt).append("<li>" + value + "</li>");
+        });
+    }
+	
+</script>
+
+{% endblock %}

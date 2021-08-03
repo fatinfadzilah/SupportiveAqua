@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block content %}
+
+<form action="/order/{{ table_id }}" method="POST">
+<h1  style="text-align:center; font-weight:700;">New Order for Table {{ table_id }}</h1>
+<h4 style="text-align:center;font-weight: 700;">MENU</h4>
+<table style="width:45%;margin-left:25%;">
+  <tr>
+    <th style="background-color:#23b14d;color:white;">Food</th>
+    <th style="background-color:#23b14d;color:white;">Quantity</th>
+  </tr>
+  <tr>
+    <td id="foodlist"></td>
+    <td id="input"></td>
+  </tr>
+   <br>
+  <tr>
+    <th style="background-color:#23b14d;color:white;">Drink</th>
+    <th style="background-color:#23b14d;color:white;">Quantity</th>
+  </tr>
+  <tr>
+    <td id="drinklist"></td>
+    <td id="input1"></td>
+  </tr>
+ 
+</table>
+  <br>
+<input type="submit" style="margin-left:50%;background-color:#23b14d;color:white;">
+
+</form>
+
+<script>
+
+ $(Document).ready(function() {
+        $.ajax({
+            url: "/menufood",
+            success: function(result) {
+             //$("#TAfoodlist").html(String(result.A.food));
+                updfood(result, "#foodlist");
+				input(result, "#input");
+	    
+            }
+        });
+
+    });
+	
+$(Document).ready(function() {
+        $.ajax({
+            url: "/menudrink",
+            success: function(result) {
+             //$("#TAdrinklist").html(String(result.A.food));
+                upddrink(result, "#drinklist");
+                input1(result, "#input1");
+
+            }
+        });
+
+    });
+	
+
+	
+function updfood(dat, tgt) {
+        $.each(dat, function(index, value) {
+            $(tgt).append("<li style='list-style-type:none; padding : 3px;'>" + value + "</li>");
+        });
+    }
+	
+function upddrink(dat, tgt) {
+        $.each(dat, function(index, value) {
+            $(tgt).append("<li style='list-style-type:none; padding : 3px;'>" + value + "</li>");
+        });
+    }
+	
+function input(dat, tgt) {
+        $.each(dat, function(index, value) {
+            $(tgt).append("<li style='list-style-type:none;'><input type='number' name='f"+index+"' min='0' placeholder='0'></li>");
+        });
+    }
+function input1(dat, tgt) {
+        $.each(dat, function(index, value) {
+            $(tgt).append("<li style='list-style-type:none;'><input type='number' name='d"+index+"' min='0' placeholder='0'></li>");
+        });
+    }
+</script>
+
+{% endblock %}
